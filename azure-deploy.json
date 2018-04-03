@@ -89,7 +89,7 @@
     },
     "autoShutdownStatus": {
       "type": "string",
-      "defaultValue": "Enabled",
+      "defaultValue": "Disabled",
       "allowedValues": [
         "Enabled",
         "Disabled"
