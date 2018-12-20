@@ -215,7 +215,7 @@
                             "fileUris": [
                                 "[variables('fileUri')]"
                             ],
-                            "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File ', variables('scriptFileName'), ' ', variables('adminUsername'), ' -AzureImage -AutoDownloadASDK $true')]"
+                            "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File ', variables('scriptFileName'), ' ', variables('adminUsername'), ' -AzureImage -EnableDownloadASDK')]"
                         }
                     }
                 }
