@@ -16,15 +16,16 @@
     "virtualMachineSize": {
       "type": "string",
       "allowedValues": [
+        "Standard_E8s_v3",
         "Standard_E16s_v3",
         "Standard_D32s_v3",
         "Standard_E32s_v3",
         "Standard_D64s_v3",
         "Standard_E64s_v3"
       ],
-      "defaultValue": "Standard_E16s_v3",
+      "defaultValue": "Standard_E8s_v3",
       "metadata": {
-        "name": "Standard_E16s_v3"
+        "name": "Standard_E8s_v3"
       }
     },
     "dataDiskSizeinGB": {
@@ -128,7 +129,7 @@
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'), '/subnets/', parameters('subnetName'))]",
         "scriptFileName": "post-config.ps1",
-        "scriptPath": "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts/",
+        "scriptPath": "https://raw.githubusercontent.com/opsgility/lab-support-public/master/azurestack/",
         "fileUri": "[concat(variables('scriptPath'), variables('scriptFileName'))]",
         "adminUsername": "__administrator",
         "osDiskSizeinGB": 256,
@@ -215,7 +216,7 @@
                             "fileUris": [
                                 "[variables('fileUri')]"
                             ],
-                            "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File ', variables('scriptFileName'), ' ', variables('adminUsername'), ' -AzureImage -EnableDownloadASDK')]"
+                            "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File ', variables('scriptFileName'), ' -UserName ', variables('adminUsername'))]"
                         }
                     }
                 }
